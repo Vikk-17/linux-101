@@ -1,0 +1,327 @@
+1. To check all shells available => cat /etc/shells
+2. path of shell, let say bash => which bash
+3. bash = bourne again shell
+4. bash script is a computer program written in the bash programming language
+5. each bash base linux scripts starts by the line - #!/bin/bash
+where #! is referred to as the shebang and rest of the line is the path to the 
+interpreter specifying the location of bash shell in our os.
+when a script with a shebang runs as a program, the program loader parses the rest of 
+the lines with the first line as interpreter directive. So, shebang denotes an 
+interpreter to execute the script lines, and it is known as the path directive for
+the execution of differnt kinds of scripts like bash, python etc.
+no space in between shebang and the path to the interpreter.
+
+6. to comment any line use - #- single line comment
+ => multi line comment- by enclosing the comments between <<COMMENT and COMMENT
+ => we can also write multi-line comment by enclosing the comments between (:') and single
+quote (').
+7. echo = to display the output by passing the arguments
+echo [option] [string]
+for the manual page of = man echo
+
+8. all the files in linux filesystem are known as directories and these are catagorized
+as follows
+ A> Ordinary files
+	B> Special files: that gives access to hardware divices
+		C> directories: both the ordinary and special files.
+
+9. changing permission: chmod [class][operator][permission] file_name
+chmod [ugoa][+or-][rwx] file_name
+u - user, g - group, o - other, a - for all
++ to add permission, - to remove permission
+r - allow access for reading, w - writing and x - to run the scripts
+
+10. (.) resolves to current directory
+	(..) to the parent directory of the present working directory
+	(~) tilde represents the home directory of logged in user
+
+
+---------------------------------------------------------------------------------------
+
+11. Quote with variable =>
+
+name="Souvik" # no space in between
+echo "$name"
+echo '$name'
+echo $name
+echo 	# to print a newline
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+12. Bash variables =>
+
+variable_name=value  # no space in between
+
+('') single quote to helps to treat every character
+("") double quote to helps to do the substitution
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+
+13. Data Types =>
+
+#if you assign any numeric value to the variable, it will work as an integer and if you
+assign a character value to the variable, then it will be string
+
+int year=2022 or year=2022
+char name='matt' ot name=matt
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+14. Types of bash variables =>
+
+A> system difined variables
+***************************
+This are the pre difined variable as they are created and maintained by the linux os itself.
+Their standard convention is generally they are defined in capital letters.
+
+BASH=/usr/bin/bash
+BASH_VERSION=4.2.46(2)
+
+env => to output the environment varables
+
+B> user difined
+
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+15. Command line arguments =>
+
+A. $0 = speicifies the name of the script to be invoked
+B. $1-$9 = stores the names of the first 9 arguments or can be used as argu's position
+C. $# = specifies the total number of args passed to the scripts
+D. $* = stores all the command args by joining them together
+E. $@ = stores the list of args as an array
+F. $? = specifies the process ID of the current script
+G. $$ = specifies the exit status of the last command of the most recent execution process
+H. $! = shows ID of the last two background
+
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+16. Read user input
+
+syntax: read <variable_name>
+
+viz: read firstname, read name1 name2 name3
+
+if we dont pass any variable with the read command then we can pass a built in variable
+called REPLY(should be prefixed with the $sign) while displaying the input. It can be 
+explained using the below program
+
+#!/bin/bash
+echo "Enter a name: "
+read
+echo "Name: $REPLY"
+
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+
+17. Bash sleep =<
+
+Sleep is a command line utility which allow us to suspend the calling process for a 
+specified time. Or, it is used to insert a delay or pause the execution for a specified
+time period of time.
+
+syntax: sleep number[suffix]
+
+sleep 9 or sleep 9s
+sleep 0.5
+sleep 2m 30s
+sleep 8h
+sleep 2d 9h 5m 55s
+
+
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+18. Bash operation
+
+syntax: $((expression))
+
+sum=$((10+3))  or ((sum=10+3)) or sum=$((num1+num2)) or ((sum=n1+n2))
+echo "Sum=$sum"
+
+A> Let construction
+*******************
+let is a built in command of bash that allows us to perform arithmatic operation
+
+syntax: let <arithmatic expression>
+
+let "x=$((a+b))"
+echo "x=$x"
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+19. Backticks:
+
+In bash scripting an arithmatic expression can also be performed using backticks and expr
+(known as all purpose expression evaluator)
+The `expr` is similar to 'let' but it does not save the results to a variable.
+It directly prints the result. It is important to note that we should use `expr`
+within command substitution to save the output to a variable.
+
+We can also use `expr` without (``).
+
+`expr item1 operator item2` or expr item1 operator item2
+We are required to use spaces between the items of the expression.
+
+********
+example
+********
+#!/bin/bash  
+#Basic arithmetic using expr  
+  
+echo "a=8, b=9"  
+echo "c is the value of addition c=a+b"  
+a=8  
+b=9  
+echo "c= `expr $a + $b`"  
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+20. Bash if else conditional statement:
+
+syntax: space used in the first line and a semicolon at the end of the first line
+both are mendatory to use. If conditional statement ends with fi.
+
+A.>
+
+if [ expr1 ];
+then
+statments
+fi
+
+
+B.> for using multiple conditions with AND & OR operator:
+
+if [ exp1 ] && [ exp2 ];
+then
+statements
+fi
+
+if [ exp1 ] || [ exp2 ];
+then
+statements
+fi
+
+C.> = -eq, > -gt, < -lt, == identical
+
+D.> if [ condition ];
+    then 
+	commands
+    else
+	commands
+    fi
+
+E.> if [ condition ];
+    then
+	commands
+    elif [ conditon];
+    then
+	commands
+    else
+	commands
+    fi
+
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+
+21. Bash case:
+These are generally applied to simplify the complex conditions having multiple different choices.
+** The bash case statement takes a value once and tests that value multiple times. It stops searching
+for a pattern once it has found it and executed the statement linked with it, which is alomost opposite
+in case of the C switch statement
+
+
+syntax: 
+
+case expression in  
+    pattern_1)  	# The ) operator indicates the termination of a pattern list
+        statements  
+        ;;  
+    pattern_2)  
+        statements  
+        ;;  
+    pattern_3|pattern_4|pattern_5)  #multiple pattern separated by |.
+        statements  
+        ;;  
+    pattern-n)  
+        statements  
+        ;;  
+    *)  		# Final pattern to define the default case.
+        statements  
+        ;;  
+esac  
+
+
+----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
+
+22. Loop:
+
+A. For loop:
+syntax:
+	for variable in list
+	do
+	commands
+	done
+
+**************************
+Example:
+**************************
+name="Robert downey jr"
+for word in $name
+do
+echo $word
+done
+
+echo "Bye"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

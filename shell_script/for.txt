@@ -1,0 +1,14 @@
+for: Traditional shell form
+
+for variable [in words]; do
+    commands
+done
+
+where variable is the name of a variable that will increment during the execution of the loop
+
+
+for: C language form
+
+for (( exp1; exp2; exp3 )); do
+    commands
+done

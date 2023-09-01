@@ -1,0 +1,40 @@
+Basic syntax of while loop:
+
+while [ exp1 ]; do
+    commands
+    more commands
+done
+
+while [ exp1 ]; do commands; done
+
+C language form:
+
+(( exp1 ))
+while (( exp2 )); do
+    commands
+    (( exp3 ))
+done
+
+Breaking out of a loop: 
+Bash provides two built in commands that can be used to control program
+flow inside loops. The <"break"> command immediately terminates a loop, and program control resumes 
+with the next statement following a loop. The <"continue"> command causes the remainder of the loop
+to be skipped, and program control resumes with the next iteration.
+
+
+until loop:
+The until compund command is much like while, except instead of exiting a loop when a non-zero exit
+status is encountered, it does the opposite. An until loop continues until it receives a zero exit
+status.
+
+
+*******
+EXAMPLE
+*******
+
+count=1
+until [[ "$count" -gt 5 ]]; do
+ echo "$count"
+ count=$((count + 1))
+done
+echo "Finished."

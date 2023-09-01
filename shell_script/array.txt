@@ -1,0 +1,75 @@
+*********************************
+Bash Array:
+*********************************
+
+----------------------------------
+A. Declaration:
+----------------------------------
+
+## Creating Numerically indexed arrays:
+
+declare -a ARRAY_NAME
+ARRAY_NAME[index_1]=value1
+ARRAY_NAME[index_2]=value2
+and so on.
+
+
+## Creating associative arrays: Unlike numerically indexed array, the associative arrays
+are firstly declared. We can use the keyword "declare" and -A (uppercase) option to declare
+the associative arrays.
+
+declare -A arr
+arr[index_foo]=value_foo
+arr[index_bar]=value_bar
+arr[index_xyz]=value_xyz  	# where index_ is used to define any string.
+
+or
+
+declare -A arr
+arr=(
+	[index_foo]=value_foo
+	[index_bar]=value_bar
+	[index_xyz]=value_xyz
+)
+
+----------------------------------
+B. Initialization:
+----------------------------------
+To initialize bash array, we can use assignment operator(=) by specifying the list of the
+elements within parentheses, separated by space like below:
+
+arr=(element_1 element_2 element_n)
+
+
+----------------------------------
+C. Access elements of array:
+----------------------------------
+echo "$arr[i]"
+
+----------------------------------
+D. Print bash array:
+----------------------------------
+We can use the keyword 'declare' with 'p' to print all the elements of a bash.
+
+declare -p arr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

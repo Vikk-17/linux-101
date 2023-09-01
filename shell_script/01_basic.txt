@@ -1,0 +1,35 @@
+Basic Commands:
+
+1.	pwd – to see where we are or our current path
+
+2.	whoami – to check who is the logged user
+
+3.	cd – to navigate through directories, [cd ..] move up one level and [cd .. /..] two level
+
+4.	ls – to list the files and dirs in the current directory
+
+5.	<cmd> -h or <cmd> –h – to get help
+
+6.	man <cd> -- manual page of that command
+
+7.	locate aircrack-ng – to locate all the occurrence of that word
+
+8.	whereis aircrack-ng – finding binaries and the man page of the given file
+
+9.	which aircrack-ng – returns the location of binaries in the PATH variable
+
+10.	find dir opt expression - perform a more powerful search
+	find / -type f -name apache2
+	find /etc -type f -name apache2.*
+
+11.	grep -- as filter to search for keywords
+	ps aux | grep apache2
+
+12.	touch file -- to create a file
+13.	rm file -- to remove a file
+14.	mkdir dir -- to make a directory
+15.	rmdir dir -- to delete a directory
+16.	cat file -- to print the content of the file
+17.	cp file <path to the new file> -- copy all the content of the file to a new file
+18.	mv file <path to the new file> -- move file to the new path
+	or we can also rename a file with mv -- mv file1 file2

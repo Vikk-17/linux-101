@@ -1,0 +1,43 @@
+Function in bash scripting are a great option to reuse code.
+Rules:
+A. Arguments can passed to the Function and accessed inside the Function as $1, $2 etc.
+B. Local variable can be assigned within the Function and the scope of such variable will
+only be that particular function.
+C.Built in command bash shell can be overridden using function.
+
+
+syntax:
+
+function_name () {
+    commands
+}
+
+or
+
+function_name () { commands; }
+
+or
+
+function function_name {
+    commands
+}
+
+or
+
+function function_name { commands; }
+
+
+Passing Arguments:
+
+A. The given arguments are accessed as $1, $2 and so on corresponding to the position
+of the given arguments after the function's name.
+B. The $0 variable is kept reversed for the function's name.
+C. The $# variable is used to hold the number of positional argument/parameter given to 
+the function.
+D. The $* and $@ variables are used to hold all the arguments/parameters given to the
+function.
+E.  When $* is used with double quotes i.e., "$*" it expands to a single string
+seperated by the space. For example: "$1 $2 $n" etc.
+F. When $@ is used with double quotes i.e., "$@" it expands to a single string
+seperated by the space. For example: "$1" "$2" "$n" etc.
+G. When $* and $# are not used with the double quotes, they both are the same.

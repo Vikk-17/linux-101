@@ -1,0 +1,1 @@
+curl v3.wttr.in/Bayern.sxl
